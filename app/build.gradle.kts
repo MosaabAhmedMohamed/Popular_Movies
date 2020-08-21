@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     id("kotlin-android-extensions")
     kotlin("kapt")
+    id("kotlin-android")
 }
 
 android {
@@ -21,6 +22,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    kotlinOptions{
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -35,6 +40,8 @@ android {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
+
+    viewBinding { isEnabled = true }
 }
 
 dependencies {
@@ -44,6 +51,9 @@ dependencies {
     implementation(SupportLibs.CARD_VIEW)
     implementation(SupportLibs.RECYCLER_VIEW)
     implementation(SupportLibs.ANDROIDX_CORE_KTX)
+    implementation("androidx.appcompat:appcompat:1.2.0")
+    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
 
     testImplementation(TestingLib.JUNIT)
 
