@@ -25,7 +25,7 @@ class MoviesViewModel
 
     val movieVS: MutableLiveData<BaseViewState<MovieDetailModel>> = MutableLiveData()
 
-    var movies: Pager<Int, Results>? = null
+    private var movies: Pager<Int, Results>? = null
 
     fun movie(id: Int) {
         val viewState: BaseViewState<MovieDetailModel> = BaseViewState()
