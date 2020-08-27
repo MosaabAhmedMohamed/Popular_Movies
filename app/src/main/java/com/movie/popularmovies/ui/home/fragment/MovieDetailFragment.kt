@@ -49,30 +49,17 @@ constructor(
     }
 
     private fun initMovieObserver() {
-        viewModel.movieVS.observe(viewLifecycleOwner, Observer<BaseViewState<MovieDetailModel>> {
-            if (it != null) {
-                when (it.networkState?.viewStatus) {
-                    ViewStatus.RUNNING -> {
-                        showLoading(true)
-                    }
-                    ViewStatus.SUCCESS -> {
-                        showLoading(false)
-                        it.response?.let { it1 -> setData(it1) }
-                    }
-                    ViewStatus.FAILED -> {
-                        showLoading(false)
-                        //makeToast(viewState.getNetworkState().getMessage())*/
-                    }
-                    ViewStatus.UNAUTHORIZED -> {
-                        showLoading(false)
-                        //goToLogin()
-                    }
-                    null -> TODO()
-                }
-            }
-        })
+        viewModel.movieVS.observe(
+            viewLifecycleOwner,
+            Observer<BaseViewState<MovieDetailModel>> { renderViewState(it) })
     }
 
+    override fun <T> renderData(model: T) {
+        super.renderData(model)
+        if (model is MovieDetailModel) {
+            setData(model)
+        }
+    }
 
     private fun setData(model: MovieDetailModel) {
         try {

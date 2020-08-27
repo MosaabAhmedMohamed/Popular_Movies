@@ -53,7 +53,7 @@ constructor(
     private fun initAppointmentsRv() {
 
         rv.setHasFixedSize(true)
-        rv.layoutManager = GridLayoutManager( context, 2)
+        rv.layoutManager = GridLayoutManager( context, 3)
         rv.adapter = adapter.withLoadStateHeaderAndFooter(
             header = HeaderFooterAdapter(adapter),
             footer = HeaderFooterAdapter(adapter)
