@@ -75,7 +75,6 @@ constructor(
 
 
     private fun setData(model: MovieDetailModel) {
-
         try {
             movie_title.text = model.title
             movie_tagline.text = model.tagline
@@ -93,5 +92,10 @@ constructor(
 
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.movieVS.postValue(null)
     }
 }

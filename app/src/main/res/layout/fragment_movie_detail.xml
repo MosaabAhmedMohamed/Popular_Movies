@@ -6,11 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".ui.home.HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        >
 
         <ImageView
             android:id="@+id/iv_movie_poster"
@@ -31,6 +33,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:text="movie"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +49,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:text="sub title"
+            android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +65,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="16dp"
             android:text="Movie Info"
+            android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -76,6 +81,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="ReleaseD  ate: "
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,9 +89,10 @@
 
         <TextView
             android:id="@+id/movie_release_date"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="2019"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView2"
             app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -98,6 +105,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Rating: "
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,9 +113,10 @@
 
         <TextView
             android:id="@+id/movie_rating"
-            android:layout_height="16dp"
             android:layout_width="6dp"
+            android:layout_height="16dp"
             android:text="8"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"
             app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -120,6 +129,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Runtime: "
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,9 +137,10 @@
 
         <TextView
             android:id="@+id/movie_runtime"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="2.3 hr"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -142,6 +153,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Budget: "
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,10 +161,11 @@
 
         <TextView
             android:id="@+id/movie_budget"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:layout_width="wrap_content"
             android:text="130,000"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/text_view5"
             app:layout_constraintStart_toEndOf="@+id/text_view5"
@@ -165,6 +178,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Revenue: "
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -172,10 +186,11 @@
 
         <TextView
             android:id="@+id/movie_revenue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:layout_width="wrap_content"
             android:text="130,000"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/text_view6"
             app:layout_constraintStart_toEndOf="@+id/text_view6"
@@ -188,6 +203,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
             android:text="Overview "
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -202,6 +218,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:text="overview ........."
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

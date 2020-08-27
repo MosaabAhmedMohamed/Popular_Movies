@@ -16,6 +16,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
-        app:srcCompat="@drawable/ic_movie" />
+        app:srcCompat="@drawable/ic_movie"
+        app:tint="@color/white" />
 
 </FrameLayout>
