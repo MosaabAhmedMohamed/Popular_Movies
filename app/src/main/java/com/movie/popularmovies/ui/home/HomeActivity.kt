@@ -28,10 +28,7 @@ class HomeActivity  : BaseActivity() , HasAndroidInjector {
         setContentView(R.layout.activity_home)
         Timber.tag(this::class.java.simpleName)
 
-        var cold : Observable<Long> = Observable.intervalRange(0,5,1,1,TimeUnit.SECONDS)
-        cold.subscribe{
-            logD(it.toString())
-        }
+      
 
     }
 
