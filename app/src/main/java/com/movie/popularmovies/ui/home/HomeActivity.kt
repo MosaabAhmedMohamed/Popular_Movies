@@ -4,10 +4,13 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.movie.popularmovies.R
 import com.movie.popularmovies.ui.base.BaseActivity
+import com.movie.popularmovies.util.extintion.logD
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
+import io.reactivex.Observable
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
@@ -24,6 +27,11 @@ class HomeActivity  : BaseActivity() , HasAndroidInjector {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         Timber.tag(this::class.java.simpleName)
+
+        var cold : Observable<Long> = Observable.intervalRange(0,5,1,1,TimeUnit.SECONDS)
+        cold.subscribe{
+            logD(it.toString())
+        }
 
     }
 

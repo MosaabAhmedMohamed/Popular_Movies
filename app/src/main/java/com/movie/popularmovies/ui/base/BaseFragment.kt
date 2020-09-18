@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.movie.popularmovies.di.Injectable
 import com.movie.popularmovies.presentation.BaseViewState
 import com.movie.popularmovies.ui.home.dialog.RetryDialog
@@ -18,7 +20,7 @@ import javax.inject.Inject
 abstract class BaseFragment constructor(
     @LayoutRes
     private val layoutRes: Int
-) : Fragment(),Injectable{
+) : Fragment(), Injectable {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -33,8 +35,8 @@ abstract class BaseFragment constructor(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(layoutRes,container,false)
+        super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(layoutRes, container, false)
     }
 
 
@@ -83,6 +85,10 @@ abstract class BaseFragment constructor(
 
     protected open fun <T> renderData(model: T) {
 
+    }
+
+    open fun navigate(action: Int, args: Bundle? = null) {
+        findNavController().navigate(action, args)
     }
 
 }

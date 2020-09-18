@@ -2,7 +2,6 @@ package com.movie.popularmovies.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
-import com.movie.popularmovies.BaseApplication
 import com.movie.popularmovies.R
 import com.movie.popularmovies.ui.home.HomeActivity
 import com.movie.popularmovies.ui.base.BaseActivity

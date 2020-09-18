@@ -16,7 +16,7 @@ import com.movie.popularmovies.util.Constants.Companion.ID_KEY
 import com.movie.popularmovies.util.OnItemClickListener
 import kotlinx.android.synthetic.main.fragment_movies.*
 
-class MoviesFragment: BaseFragment(R.layout.fragment_movies),
+class MoviesFragment : BaseFragment(R.layout.fragment_movies),
     OnItemClickListener, RetryDialog.onRetryListener {
 
 
@@ -24,13 +24,14 @@ class MoviesFragment: BaseFragment(R.layout.fragment_movies),
         viewModelFactory
     }
 
-    private lateinit var adapter : MoviesAdapter
+    private lateinit var adapter: MoviesAdapter
 
     override fun init() {
-        if(!this::adapter.isInitialized){
+        if (!this::adapter.isInitialized) {
             adapter = MoviesAdapter(
                 this,
-                DIFF_CALLBACK = MoviesAdapter.DIFF_CALLBACK)
+                DIFF_CALLBACK = MoviesAdapter.DIFF_CALLBACK
+            )
         }
         viewModel.reInit()
         initAppointmentsRv()
@@ -43,7 +44,7 @@ class MoviesFragment: BaseFragment(R.layout.fragment_movies),
     private fun initAppointmentsRv() {
 
         rv.setHasFixedSize(true)
-        rv.layoutManager = GridLayoutManager( context, 3)
+        rv.layoutManager = GridLayoutManager(context, 3)
         rv.adapter = adapter.withLoadStateHeaderAndFooter(
             header = HeaderFooterAdapter(adapter),
             footer = HeaderFooterAdapter(adapter)
@@ -69,7 +70,7 @@ class MoviesFragment: BaseFragment(R.layout.fragment_movies),
     override fun onClick(id: Int) {
         val args = Bundle()
         args.putInt(ID_KEY, id)
-        findNavController().navigate(R.id.action_moviesFragment_to_movieDetailFragment, args)
+        navigate(R.id.action_moviesFragment_to_movieDetailFragment, args)
     }
 
     override fun onRetry() {
