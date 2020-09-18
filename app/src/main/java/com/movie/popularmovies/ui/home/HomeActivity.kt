@@ -28,7 +28,7 @@ class HomeActivity  : BaseActivity() , HasAndroidInjector {
         setContentView(R.layout.activity_home)
         Timber.tag(this::class.java.simpleName)
 
-      
+
 
     }
 
