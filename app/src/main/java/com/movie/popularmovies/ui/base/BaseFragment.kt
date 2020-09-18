@@ -1,18 +1,41 @@
 package com.movie.popularmovies.ui.base
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import com.movie.popularmovies.di.Injectable
 import com.movie.popularmovies.presentation.BaseViewState
 import com.movie.popularmovies.ui.home.dialog.RetryDialog
 import com.movie.popularmovies.util.ViewStatus
+import dagger.android.AndroidInjection
 import timber.log.Timber
+import javax.inject.Inject
 
 abstract class BaseFragment constructor(
     @LayoutRes
     private val layoutRes: Int
-) : Fragment(layoutRes) {
+) : Fragment(),Injectable{
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(activity)
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+         super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(layoutRes,container,false)
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

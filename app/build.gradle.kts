@@ -63,6 +63,7 @@ dependencies {
 
     implementation(RETROFIT.RETROFIT)
     implementation(RETROFIT.RETROFIT_JSON_CONVERTER)
+    implementation(RETROFIT.RETROFIT_MOSHI_CONVERTER)
 
 
     implementation(LIFECYCLE.REACTIVE_STREAMS)
@@ -70,6 +71,8 @@ dependencies {
     kapt(LIFECYCLE.LIFECYCLE_KAPT)
 
     implementation(DAGGER.DAGGER)
+    implementation(DAGGER.DAGGER_ANDROID)
+    kapt(DAGGER.DAGGER_ANNOTATION)
     kapt(DAGGER.DAGGER_KAPT)
 
     implementation(NAVIGATION.NAVIGATION_FRAGMENT)
@@ -92,4 +95,6 @@ dependencies {
 
     implementation(GLIDE.GLIDE)
     annotationProcessor(GLIDE.GLIDE_COMPILER)
+
+    implementation(COIL.COIL)
 }

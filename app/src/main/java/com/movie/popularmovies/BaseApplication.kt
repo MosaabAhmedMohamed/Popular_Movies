@@ -1,65 +1,33 @@
 package com.movie.popularmovies
 
 import android.app.Application
-import com.movie.popularmovies.di.AppComponent
-import com.movie.popularmovies.di.DaggerAppComponent
-import com.movie.popularmovies.di.home.HomeComponent
-import com.movie.popularmovies.di.splash.SplashComponent
+import android.os.Build
+import com.movie.popularmovies.di.AppInjector
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
 import timber.log.Timber
+import javax.inject.Inject
 
-class BaseApplication : Application() {
+class BaseApplication : Application() , HasAndroidInjector {
 
-    lateinit var appComponent: AppComponent
+    @Inject
+    lateinit var androidInjector: DispatchingAndroidInjector<Any>
 
-    private var homeComponent: HomeComponent? = null
-
-    private var splashComponent: SplashComponent? = null
-
+    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 
     override fun onCreate() {
         super.onCreate()
-        initAppComponent()
-        initTimber()
-    }
 
-    fun releaseHomeComponent() {
-        homeComponent = null
-    }
-
-    fun homeComponent(): HomeComponent {
-        if (homeComponent == null) {
-            homeComponent = appComponent.homeComponent().create()
-        }
-        return homeComponent as HomeComponent
-    }
-
-    fun releaseSplashComponent() {
-        splashComponent = null
-    }
-
-    fun splashComponent(): SplashComponent {
-        if (splashComponent == null) {
-            splashComponent = appComponent.splashComponent().create()
-        }
-        return splashComponent as SplashComponent
-    }
-
-
-    fun initAppComponent() {
-        appComponent = DaggerAppComponent.builder()
-            .application(this)
-            .build()
-    }
-
-    private fun initTimber() {
-        if (BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG && !isRoboUnitTest()) {
             Timber.plant(Timber.DebugTree())
-            /* if (LeakCanary.isInAnalyzerProcess(this)) {
-                 return
-             }
-             LeakCanary.install(this)*/
+            //Stetho.initializeWithDefaults(this)
         }
+
+        AppInjector.init(this)
+    }
+
+    private fun isRoboUnitTest(): Boolean {
+        return "robolectric" == Build.FINGERPRINT
     }
 }
-
-

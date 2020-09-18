@@ -28,6 +28,8 @@ object Versions {
     const val TIMBER = "4.7.1"
     const val LOGGING_INTERCEPTORS = "4.0.0"
     const val PAGING_3 = "3.0.0-alpha05"
+    const val COIL = "0.11.0"
+
 
 
 }
@@ -64,6 +66,7 @@ object AndroidTestingLib {
 object RETROFIT {
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
     const val RETROFIT_JSON_CONVERTER = "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
+    const val RETROFIT_MOSHI_CONVERTER = "com.squareup.retrofit2:converter-moshi:${Versions.RETROFIT}"
 }
 
 object LIFECYCLE {
@@ -74,6 +77,8 @@ object LIFECYCLE {
 
 object DAGGER {
     const val DAGGER = "com.google.dagger:dagger:${Versions.DAGGER}"
+    const val DAGGER_ANDROID = "com.google.dagger:dagger-android-support:${Versions.DAGGER}"
+    const val DAGGER_ANNOTATION = "com.google.dagger:dagger-android-processor:${Versions.DAGGER}"
     const val DAGGER_KAPT = "com.google.dagger:dagger-compiler:${Versions.DAGGER}"
 }
 
@@ -112,6 +117,10 @@ object PAGING {
     const val PAGING_RUNTIME = "androidx.paging:paging-runtime-ktx:${Versions.PAGING_3}"
     const val PAGING_COMMON = "androidx.paging:paging-common-ktx:${Versions.PAGING_3}"
     const val PAGING_RX = "androidx.paging:paging-rxjava2:${Versions.PAGING_3}"
+}
+
+object COIL {
+    const val COIL = "io.coil-kt:coil:${Versions.COIL}"
 }
 
 

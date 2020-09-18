@@ -1,17 +1,11 @@
 package com.movie.popularmovies.ui.home.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.RequestManager
 import com.movie.popularmovies.R
 import com.movie.popularmovies.presentation.viewmodel.MoviesViewModel
 import com.movie.popularmovies.ui.base.BaseFragment
@@ -21,27 +15,23 @@ import com.movie.popularmovies.ui.home.fragment.adapter.MoviesAdapter
 import com.movie.popularmovies.util.Constants.Companion.ID_KEY
 import com.movie.popularmovies.util.OnItemClickListener
 import kotlinx.android.synthetic.main.fragment_movies.*
-import javax.inject.Inject
 
-class MoviesFragment
-@Inject
-constructor(
-    viewModelFactory: ViewModelProvider.Factory,
-    requestManager: RequestManager
-) : BaseFragment(R.layout.fragment_movies),
+class MoviesFragment: BaseFragment(R.layout.fragment_movies),
     OnItemClickListener, RetryDialog.onRetryListener {
+
 
     private val viewModel: MoviesViewModel by viewModels {
         viewModelFactory
     }
 
-    private val adapter = MoviesAdapter(
-        this,
-        DIFF_CALLBACK = MoviesAdapter.DIFF_CALLBACK,
-        requestManager = requestManager
-    )
+    private lateinit var adapter : MoviesAdapter
 
     override fun init() {
+        if(!this::adapter.isInitialized){
+            adapter = MoviesAdapter(
+                this,
+                DIFF_CALLBACK = MoviesAdapter.DIFF_CALLBACK)
+        }
         viewModel.reInit()
         initAppointmentsRv()
         initAppointmentsListObserver()
@@ -70,7 +60,7 @@ constructor(
     private fun initAppointmentsListObserver() {
         if (adapter.itemCount == 0)
             viewModel.moviesList().observe(requireActivity(), Observer {
-                refresh_layout.stopRefresh()
+                refresh_layout?.stopRefresh()
                 adapter.submitData(lifecycle, it)
             })
     }

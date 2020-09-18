@@ -2,21 +2,19 @@ package com.movie.popularmovies.ui.base
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import com.movie.popularmovies.BaseApplication
 import com.movie.popularmovies.ui.custom.LoadingProgressDialog.Companion.showLoadingDialog
 import com.movie.popularmovies.ui.home.dialog.RetryDialog
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    abstract fun inject()
     private var mProgressDialog: ProgressDialog? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        (application as BaseApplication).appComponent
-            .inject(this)
-        super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
     }
+
 
 
     open fun hideLoading() {

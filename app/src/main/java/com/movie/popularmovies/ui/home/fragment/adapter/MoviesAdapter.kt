@@ -12,14 +12,13 @@ import com.movie.popularmovies.util.OnItemClickListener
 
 class MoviesAdapter(
     private val onItemClickListener: OnItemClickListener,
-    val requestManager: RequestManager,
     DIFF_CALLBACK: DiffUtil.ItemCallback<Results>
 ) : PagingDataAdapter<Results, ItemViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view: View =
             LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
-        return ItemViewHolder(view, onItemClickListener, requestManager)
+        return ItemViewHolder(view, onItemClickListener)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
