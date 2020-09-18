@@ -25,7 +25,7 @@ class LoadingProgressDialog(context: Context) : ProgressDialog(context) {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        animator = rotateLoading?.let { Animation.instance.setBouncingAnimation(it, 0, 250) }
+        animator = rotateLoading?.let { Animation.setBouncingAnimation(it, 0, 250) }
     }
 
     override fun onDetachedFromWindow() {

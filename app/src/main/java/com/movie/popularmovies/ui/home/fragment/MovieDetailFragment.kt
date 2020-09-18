@@ -26,7 +26,6 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
 
 
     override fun init() {
-        viewModel.reInit()
         initMovieObserver()
         checkArgs()
     }

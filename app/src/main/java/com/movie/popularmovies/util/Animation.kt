@@ -8,9 +8,7 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.ScaleAnimation
 
-open class Animation {
-
-    object instance : Animation()
+object Animation {
 
     fun getScaleAnimation(offset: Int, duration: Int): android.view.animation.Animation {
         val anim = ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, 1, 0.5f, 1, 0.5f)
@@ -50,7 +48,7 @@ open class Animation {
         return view
     }
 
-    open fun expand(v: View, duration: Int, targetHeight: Int) {
+     fun expand(v: View, duration: Int, targetHeight: Int) {
         val prevHeight = v.height
         v.visibility = View.VISIBLE
         val valueAnimator = ValueAnimator.ofInt(prevHeight, targetHeight)
@@ -69,7 +67,7 @@ open class Animation {
         }
     }
 
-    open fun collapse(v: View, duration: Int, targetHeight: Int) {
+     fun collapse(v: View, duration: Int, targetHeight: Int) {
         val prevHeight = v.height
         val valueAnimator = ValueAnimator.ofInt(prevHeight, targetHeight)
         valueAnimator.interpolator = DecelerateInterpolator()
@@ -88,7 +86,7 @@ open class Animation {
         }
     }
 
-    open fun FlipX(view: View?, duration: Int) {
+     fun FlipX(view: View?, duration: Int) {
         val flip = ObjectAnimator.ofFloat(view, "rotationY", 360f, 0f)
         flip.duration = duration.toLong()
         flip.start()

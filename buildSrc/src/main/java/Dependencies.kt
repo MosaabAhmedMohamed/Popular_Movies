@@ -23,6 +23,7 @@ object Versions {
     const val GLIDE = "4.9.0"
     const val RXANDROID = "2.1.1"
     const val RXJAVA = "2.1.1"
+    const val RXKOTLIN = "2.2.0"
     const val RX_RETROFIT = "2.5.0"
     const val REACTIVE_STREAMS = "1.1.1"
     const val TIMBER = "4.7.1"
@@ -102,6 +103,7 @@ object GLIDE {
 object RX {
     const val RXANDROID = "io.reactivex.rxjava2:rxandroid:${Versions.RXANDROID}"
     const val RXJAVA = "io.reactivex.rxjava2:rxjava:${Versions.RXJAVA}"
+    //const val RXKOTLIN = "io.reactivex.rxjava2:rxkotlin:${Versions.RXKOTLIN}"
     const val RETROFIT = "com.squareup.retrofit2:adapter-rxjava2:${Versions.RX_RETROFIT}"
 }
 

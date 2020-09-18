@@ -15,13 +15,15 @@ import com.movie.popularmovies.util.rx.AppSchedulerProvider
 import io.reactivex.functions.Consumer
 import javax.inject.Inject
 
-@HomeScope
+
 class MoviesViewModel
-@Inject constructor(private var useCase: MovieUseCase) :
-    BaseViewModel(
-        AppSchedulerProvider.instance.io()
-        , AppSchedulerProvider.instance.ui()
-    ) {
+@Inject
+constructor(
+    private val useCase: MovieUseCase
+) : BaseViewModel(
+    AppSchedulerProvider.io(),
+    AppSchedulerProvider.ui()
+) {
 
     val movieVS: MutableLiveData<BaseViewState<MovieDetailModel>> = MutableLiveData()
 

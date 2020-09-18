@@ -21,10 +21,6 @@ open class BaseViewModel(
 
     private var disposables: CompositeDisposable? = null
 
-    fun reInit() {
-
-        disposables = CompositeDisposable()
-    }
 
     @SuppressLint("RestrictedApi")
     fun <T> execute(
@@ -43,7 +39,13 @@ open class BaseViewModel(
             .doOnSubscribe(loadingConsumer)
             .subscribeOn(subscribeOn!!)
             .observeOn(observeOn)
+
+        if (disposables == null) {
+            disposables = CompositeDisposable()
+        }
         addDisposable(observable.subscribe(successConsumer, throwableConsumer))
+
+
     }
 
     @SuppressLint("RestrictedApi")
@@ -85,8 +87,10 @@ open class BaseViewModel(
     @SuppressLint("RestrictedApi")
     private fun addDisposable(disposable: Disposable) {
         Preconditions.checkNotNull(disposable)
-        Preconditions.checkNotNull(disposables)
-        disposables!!.add(disposable)
+        disposables?.let {
+            disposables!!.add(disposable)
+        }
+
     }
 
     override fun onCleared() {

@@ -10,7 +10,6 @@ import javax.inject.Inject
 class MovieUseCase  @Inject constructor(private val repository: MovieRepository) {
 
 
-
     fun getMovie(id: Int): Single<MovieDetailModel> {
         return repository.getMovie(id)
     }

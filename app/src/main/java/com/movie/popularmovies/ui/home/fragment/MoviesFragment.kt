@@ -33,7 +33,6 @@ class MoviesFragment : BaseFragment(R.layout.fragment_movies),
                 DIFF_CALLBACK = MoviesAdapter.DIFF_CALLBACK
             )
         }
-        viewModel.reInit()
         initAppointmentsRv()
         initAppointmentsListObserver()
     }
